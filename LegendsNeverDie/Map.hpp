@@ -10,8 +10,19 @@ public:
   void update();
   void detroy();
 
-private:
+  void readMap();
+ 
+
   unsigned int width;
   unsigned int height;
+
+private:
+	
+
+  char** maps;
+ /* std::shared_ptr<Map> m_width;
+  std::shared_ptr<Map> m_height;
+  */
+
 };
 

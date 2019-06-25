@@ -5,6 +5,7 @@
 
 #include <map>
 #include "CWGame.hpp"
+ 
 
 
 int main()
@@ -17,12 +18,16 @@ int main()
 		return 0;
 	}
 
-	while (true)
+	while (true && !game.endGame())
 	{
+		 
 		game.update();
+	
+		
 	}
 
+	
 	game.destroy();
-
+	return 0;
 
 }
