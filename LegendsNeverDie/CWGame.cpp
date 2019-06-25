@@ -93,8 +93,8 @@ void CWGame::createItem()
 	}
 	 
 	 
-		HCP->posX = 17;
-		HCP->posY = 6;
+		HCP->posX = map->width-1;
+		HCP->posY = map->height-1;
 
 		HCP->Icon = 'H';
 
