@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClInclude Include="CWGame.hpp" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="json.hpp" />
     <ClInclude Include="Map.hpp" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />

@@ -1,0 +1,34 @@
+{
+  "player": {
+    "posX": 2,
+    "posY": 2,
+    "HP": 40
+  },
+  "Monster": {
+    "Dragon": {
+      "posX": 2,
+      "posY": 4,
+      "HP": 10
+    },
+    "Goblin": {
+      "posX": 6,
+      "posY": 3,
+      "HP": 6
+    }
+  },
+
+  "item": {
+    "LSword": {
+      "posX": 8,
+      "posY": 3,
+      "HP": 1
+     },
+    "Potion": {
+      "posX": 14,
+      "posY": 2,
+      "HP": 1
+   
+
+    }
+  }
+}

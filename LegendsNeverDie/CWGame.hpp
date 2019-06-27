@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include "json.hpp"
 
 class Map;
 class Player;
@@ -24,15 +25,14 @@ public:
   void createItem();
   void monsterCon();
   void dragonCon();
+  
 
 private:
   std::shared_ptr<Map> map;
   std::shared_ptr<Player> player;
-  std::shared_ptr<Monster> monster1;
-  std::shared_ptr<Monster> monster2;
-  std::shared_ptr<Item> RedPotion;
+  std::shared_ptr<Monster> monster;
   std::shared_ptr<Item> Sword;
-  
+  nlohmann::json jsonFile;
 
 
 };

@@ -4,12 +4,18 @@
 #include <iostream>
 #include <conio.h>
  
-
+#include <fstream>
+#include <string>
 
 #include "Map.hpp"
 #include "Player.h"
 #include "Monster.h"
 #include "Item.h"
+#include "json.hpp"
+
+
+#define jsonFilename  "Gamesetting.json"
+using json = nlohmann::json;
 
 // to check which side of wall is 
 int checkDWall = 0;
@@ -19,7 +25,8 @@ int checkGWall = 0;
 CWGame::CWGame()
   :map(std::make_shared<Map>()),
      player(std::make_shared<Player>()),	
-				Sword(std::make_shared<Item>())
+				Sword(std::make_shared<Item>()),
+					monster(std::make_shared<Monster>())
 			
 {
 	 
@@ -76,16 +83,15 @@ void CWGame::createItem()
 
 	if (Potion->HP > 0) {
 		
-		Potion->posX = 14;
-		Potion->posY = 2;
-		Potion->Icon = 'R';
-
+		Potion->posX = static_cast<int>(jsonFile["item"]["Potion"]["posX"]);
+		Potion->posY = static_cast<int>(jsonFile["item"]["Potion"]["posY"]);
+		Potion->Icon = 'P';
 		Potion->updateI(Potion->Icon);
 	}
 
 	if (LSword->HP > 0) {
-		LSword->posX = 8;
-		LSword->posY = 3;
+		LSword->posX = static_cast<int>(jsonFile["item"]["Potion"]["posX"]);
+		LSword->posY = static_cast<int>(jsonFile["item"]["Potion"]["posY"]);
 
 		LSword->Icon = 'S';
 
@@ -93,8 +99,8 @@ void CWGame::createItem()
 	}
 	 
 	 
-		HCP->posX = 17;
-		HCP->posY = 6;
+		HCP->posX = map->width-1;
+		HCP->posY = map->height-1;
 
 		HCP->Icon = 'H';
 
@@ -104,36 +110,41 @@ void CWGame::createItem()
 
 }
 
-
  
 bool CWGame::init()
 {
+	std::ifstream ifs(jsonFilename);
+	jsonFile = json::parse(ifs);
+
+
 	//set pos mon to interacty
-	Dragon->posX = 2;
-	Dragon->posY = 4;
+	Dragon->posX = static_cast<int>(jsonFile["Monster"]["Dragon"]["posX"]);
+	Dragon->posY = static_cast<int>(jsonFile["Monster"]["Dragon"]["posY"]);
  
 
-	Goblin->posX = 6;
-	Goblin->posY = 3;
+	Goblin->posX = static_cast<int>(jsonFile["Monster"]["Goblin"]["posX"]);
+	Goblin->posY = static_cast<int>(jsonFile["Monster"]["Goblin"]["posY"]);
 
 	//set hp monster
-	Goblin->HP = 6;
-	Dragon->HP = 10;
+	Goblin->HP = static_cast<int>(jsonFile["Monster"]["Goblin"]["HP"]);
+	Dragon->HP = static_cast<int>(jsonFile["Monster"]["Dragon"]["HP"]);
 	//set hp Item
-	Potion->HP = 1;
-	LSword->HP = 1;
+	Potion->HP = static_cast<int>(jsonFile["Monster"]["Goblin"]["HP"]);;
+	LSword->HP = static_cast<int>(jsonFile["Monster"]["Goblin"]["HP"]);;
 	 
 	player->DisplayStats();
 	map->init();
 
-	player->posX = 2;
-	player->posY = 2;
+	player->posX = static_cast<int>(jsonFile["player"]["posX"]);
+	player->posY = static_cast<int>(jsonFile["player"]["posY"]);
+
 	// old player pos to make monster update
 	OldPosP->posX = player->posX;
 	OldPosP->posY = player->posY;
 	OldPosP2->posX = player->posX;
 	OldPosP2->posY = player->posY;
-	player->HP = 40;
+
+	player->HP = static_cast<int>(jsonFile["player"]["HP"]);
   
 
 
