@@ -42,7 +42,7 @@ void Player::DisplayStats()
 	std::cout << "\n\n\t---L=Legendary sword can defeat every monster and get a health back---";
 	std::cout << "\n\n\t---R= Red Potion you will get the health from it---";
 	std::cout << "\n\n\t---Please Go to Hospital(H) immedieatly before run out of health---";
- 
+	 std::cout << "\n\n\t-w to move up, a to move left,s to move down and d to move to right-";
 }
 
 void  Player::DisplayHP() {
