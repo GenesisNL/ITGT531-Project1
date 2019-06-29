@@ -85,7 +85,7 @@ void CWGame::createItem()
 		
 		Potion->posX = static_cast<int>(jsonFile["item"]["Potion"]["posX"]);
 		Potion->posY = static_cast<int>(jsonFile["item"]["Potion"]["posY"]);
-		Potion->Icon = 'P';
+		Potion->Icon = 'R';
 		Potion->updateI(Potion->Icon);
 	}
 
