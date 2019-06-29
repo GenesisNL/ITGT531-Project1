@@ -90,8 +90,8 @@ void CWGame::createItem()
 	}
 
 	if (LSword->HP > 0) {
-		LSword->posX = static_cast<int>(jsonFile["item"]["Potion"]["posX"]);
-		LSword->posY = static_cast<int>(jsonFile["item"]["Potion"]["posY"]);
+		LSword->posX = static_cast<int>(jsonFile["item"]["LSword"]["posX"]);
+		LSword->posY = static_cast<int>(jsonFile["item"]["LSword"]["posY"]);
 
 		LSword->Icon = 'S';
 
