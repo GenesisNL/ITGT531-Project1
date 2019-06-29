@@ -129,8 +129,8 @@ bool CWGame::init()
 	Goblin->HP = static_cast<int>(jsonFile["Monster"]["Goblin"]["HP"]);
 	Dragon->HP = static_cast<int>(jsonFile["Monster"]["Dragon"]["HP"]);
 	//set hp Item
-	Potion->HP = static_cast<int>(jsonFile["Monster"]["Goblin"]["HP"]);;
-	LSword->HP = static_cast<int>(jsonFile["Monster"]["Goblin"]["HP"]);;
+	Potion->HP = static_cast<int>(jsonFile["item"]["Potion"]["HP"]);;
+	LSword->HP = static_cast<int>(jsonFile["item"]["Lsword"]["HP"]);;
 	 
 	player->DisplayStats();
 	map->init();
